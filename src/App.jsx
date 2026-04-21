@@ -33,10 +33,10 @@ const moods = [
 
 const moodColors = {
   tender: { bg: "#2a1520", accent: "#e8a0b0", glow: "rgba(232,160,176,0.15)" },
-  wild:   { bg: "#0f1e2a", accent: "#7ab8d4", glow: "rgba(122,184,212,0.15)" },
+  wild: { bg: "#0f1e2a", accent: "#7ab8d4", glow: "rgba(122,184,212,0.15)" },
   golden: { bg: "#1e1608", accent: "#e8c87a", glow: "rgba(232,200,122,0.15)" },
-  quiet:  { bg: "#121525", accent: "#9a9ed4", glow: "rgba(154,158,212,0.15)" },
-  bloom:  { bg: "#0f1e14", accent: "#8ad4a0", glow: "rgba(138,212,160,0.15)" },
+  quiet: { bg: "#121525", accent: "#9a9ed4", glow: "rgba(154,158,212,0.15)" },
+  bloom: { bg: "#0f1e14", accent: "#8ad4a0", glow: "rgba(138,212,160,0.15)" },
 };
 
 const images = [
@@ -66,34 +66,34 @@ function FlipCard({ item }) {
   const [flipped, setFlipped] = useState(false);
   const colors = moodColors[item.mood] || moodColors.golden;
   return (
-    <div onClick={() => setFlipped(f => !f)} style={{ width:"100%", aspectRatio:"3/4", cursor:"pointer", perspective:"1000px", marginBottom:"16px" }}>
-      <div style={{ width:"100%", height:"100%", position:"relative", transformStyle:"preserve-3d", transition:"transform 0.75s cubic-bezier(0.23,1,0.32,1)", transform: flipped?"rotateY(180deg)":"rotateY(0deg)" }}>
-        <div style={{ position:"absolute", inset:0, backfaceVisibility:"hidden", WebkitBackfaceVisibility:"hidden", borderRadius:"4px", background:`radial-gradient(ellipse at 30% 30%, ${colors.glow}, transparent 60%), ${colors.bg}`, border:`1px solid ${colors.accent}22`, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", padding:"28px 22px", boxShadow:`0 4px 32px rgba(0,0,0,0.5), inset 0 0 60px ${colors.glow}`, overflow:"hidden" }}>
-          <div style={{ position:"absolute", top:12, left:12, width:20, height:20, borderTop:`1px solid ${colors.accent}55`, borderLeft:`1px solid ${colors.accent}55` }} />
-          <div style={{ position:"absolute", top:12, right:12, width:20, height:20, borderTop:`1px solid ${colors.accent}55`, borderRight:`1px solid ${colors.accent}55` }} />
-          <div style={{ position:"absolute", bottom:12, left:12, width:20, height:20, borderBottom:`1px solid ${colors.accent}55`, borderLeft:`1px solid ${colors.accent}55` }} />
-          <div style={{ position:"absolute", bottom:12, right:12, width:20, height:20, borderBottom:`1px solid ${colors.accent}55`, borderRight:`1px solid ${colors.accent}55` }} />
-          <div style={{ fontSize:"10px", letterSpacing:"0.25em", color:colors.accent, textTransform:"uppercase", marginBottom:"20px", opacity:0.7 }}>{moods.find(m=>m.id===item.mood)?.emoji} {item.mood}</div>
-          <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:20, width:"100%" }}>
-            <div style={{ flex:1, height:"1px", background:`linear-gradient(to right, transparent, ${colors.accent}44)` }} />
-            <div style={{ width:4, height:4, borderRadius:"50%", background:colors.accent, opacity:0.5 }} />
-            <div style={{ flex:1, height:"1px", background:`linear-gradient(to left, transparent, ${colors.accent}44)` }} />
+    <div onClick={() => setFlipped(f => !f)} style={{ width: "100%", aspectRatio: "3/4", cursor: "pointer", perspective: "1000px", marginBottom: "16px" }}>
+      <div style={{ width: "100%", height: "100%", position: "relative", transformStyle: "preserve-3d", transition: "transform 0.75s cubic-bezier(0.23,1,0.32,1)", transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}>
+        <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", borderRadius: "4px", background: `radial-gradient(ellipse at 30% 30%, ${colors.glow}, transparent 60%), ${colors.bg}`, border: `1px solid ${colors.accent}22`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "28px 22px", boxShadow: `0 4px 32px rgba(0,0,0,0.5), inset 0 0 60px ${colors.glow}`, overflow: "hidden" }}>
+          <div style={{ position: "absolute", top: 12, left: 12, width: 20, height: 20, borderTop: `1px solid ${colors.accent}55`, borderLeft: `1px solid ${colors.accent}55` }} />
+          <div style={{ position: "absolute", top: 12, right: 12, width: 20, height: 20, borderTop: `1px solid ${colors.accent}55`, borderRight: `1px solid ${colors.accent}55` }} />
+          <div style={{ position: "absolute", bottom: 12, left: 12, width: 20, height: 20, borderBottom: `1px solid ${colors.accent}55`, borderLeft: `1px solid ${colors.accent}55` }} />
+          <div style={{ position: "absolute", bottom: 12, right: 12, width: 20, height: 20, borderBottom: `1px solid ${colors.accent}55`, borderRight: `1px solid ${colors.accent}55` }} />
+          <div style={{ fontSize: "10px", letterSpacing: "0.25em", color: colors.accent, textTransform: "uppercase", marginBottom: "20px", opacity: 0.7 }}>{moods.find(m => m.id === item.mood)?.emoji} {item.mood}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20, width: "100%" }}>
+            <div style={{ flex: 1, height: "1px", background: `linear-gradient(to right, transparent, ${colors.accent}44)` }} />
+            <div style={{ width: 4, height: 4, borderRadius: "50%", background: colors.accent, opacity: 0.5 }} />
+            <div style={{ flex: 1, height: "1px", background: `linear-gradient(to left, transparent, ${colors.accent}44)` }} />
           </div>
-          <p style={{ fontFamily:"'IM Fell English',serif", fontStyle:"italic", fontSize:"14px", lineHeight:1.85, color:"#f5e6c8", textAlign:"center", margin:"0 0 16px", textShadow:`0 0 24px ${colors.glow}` }}>"{item.quote}"</p>
-          <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"11px", color:colors.accent, letterSpacing:"0.12em", opacity:0.8, margin:0 }}>{item.author}</p>
-          <div style={{ position:"absolute", bottom:18, display:"flex", alignItems:"center", gap:5, opacity:0.28 }}>
-            <div style={{ width:14, height:1, background:colors.accent }} />
-            <span style={{ fontSize:"9px", color:colors.accent, letterSpacing:"0.2em", textTransform:"uppercase" }}>tap</span>
-            <div style={{ width:14, height:1, background:colors.accent }} />
+          <p style={{ fontFamily: "'IM Fell English',serif", fontStyle: "italic", fontSize: "14px", lineHeight: 1.85, color: "#f5e6c8", textAlign: "center", margin: "0 0 16px", textShadow: `0 0 24px ${colors.glow}` }}>"{item.quote}"</p>
+          <p style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "11px", color: colors.accent, letterSpacing: "0.12em", opacity: 0.8, margin: 0 }}>{item.author}</p>
+          <div style={{ position: "absolute", bottom: 18, display: "flex", alignItems: "center", gap: 5, opacity: 0.28 }}>
+            <div style={{ width: 14, height: 1, background: colors.accent }} />
+            <span style={{ fontSize: "9px", color: colors.accent, letterSpacing: "0.2em", textTransform: "uppercase" }}>tap</span>
+            <div style={{ width: 14, height: 1, background: colors.accent }} />
           </div>
         </div>
-        <div style={{ position:"absolute", inset:0, backfaceVisibility:"hidden", WebkitBackfaceVisibility:"hidden", transform:"rotateY(180deg)", borderRadius:"4px", overflow:"hidden", boxShadow:"0 8px 40px rgba(0,0,0,0.6)" }}>
-          <img src={item.url} alt={item.quote} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
-          <div style={{ position:"absolute", bottom:0, left:0, right:0, background:"linear-gradient(to top, rgba(8,4,2,0.9) 0%, transparent 100%)", padding:"44px 14px 14px" }}>
-            <p style={{ fontFamily:"'IM Fell English',serif", fontStyle:"italic", fontSize:"11px", color:"#f5e6c8cc", margin:"0 0 3px", lineHeight:1.55 }}>"{item.quote}"</p>
-            <p style={{ fontSize:"10px", color:colors.accent, letterSpacing:"0.07em" }}>{item.author}</p>
+        <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)", borderRadius: "4px", overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.6)" }}>
+          <img src={item.url} alt={item.quote} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(8,4,2,0.9) 0%, transparent 100%)", padding: "44px 14px 14px" }}>
+            <p style={{ fontFamily: "'IM Fell English',serif", fontStyle: "italic", fontSize: "11px", color: "#f5e6c8cc", margin: "0 0 3px", lineHeight: 1.55 }}>"{item.quote}"</p>
+            <p style={{ fontSize: "10px", color: colors.accent, letterSpacing: "0.07em" }}>{item.author}</p>
           </div>
-          <div style={{ position:"absolute", top:10, right:10, background:"rgba(0,0,0,0.45)", backdropFilter:"blur(4px)", border:`1px solid ${colors.accent}33`, borderRadius:"2px", padding:"3px 8px", fontSize:"9px", color:colors.accent, letterSpacing:"0.15em", textTransform:"uppercase", opacity:0.65 }}>↩ flip</div>
+          <div style={{ position: "absolute", top: 10, right: 10, background: "rgba(0,0,0,0.45)", backdropFilter: "blur(4px)", border: `1px solid ${colors.accent}33`, borderRadius: "2px", padding: "3px 8px", fontSize: "9px", color: colors.accent, letterSpacing: "0.15em", textTransform: "uppercase", opacity: 0.65 }}>↩ flip</div>
         </div>
       </div>
     </div>
@@ -108,25 +108,25 @@ function GalleryPage({ onBack }) {
   const cols = [[], [], []];
   filtered.forEach((item, i) => cols[i % 3].push(item));
   return (
-    <div style={{ minHeight:"100vh", background:"#0a0704", fontFamily:"'Cormorant Garamond',serif", color:"#f5e6c8" }}>
+    <div style={{ minHeight: "100vh", background: "#0a0704", fontFamily: "'Cormorant Garamond',serif", color: "#f5e6c8" }}>
       <style>{`*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#0a0704}::-webkit-scrollbar-thumb{background:#3a2e1c;border-radius:2px}.mb:hover{color:#f5e6c8!important;border-color:rgba(200,168,122,0.5)!important;background:rgba(200,168,122,0.06)!important}`}</style>
-      <header style={{ textAlign:"center", padding:"60px 24px 32px", position:"relative", opacity:visible?1:0, transform:visible?"translateY(0)":"translateY(16px)", transition:"all 1.1s cubic-bezier(0.23,1,0.32,1)" }}>
-        <button onClick={onBack} style={{ position:"absolute", left:20, top:60, background:"transparent", border:"1px solid rgba(200,168,122,0.25)", color:"#c8a87a", fontFamily:"'Cormorant Garamond',serif", fontSize:"11px", letterSpacing:"0.2em", padding:"6px 14px", cursor:"pointer", borderRadius:"1px", textTransform:"uppercase" }}>← back</button>
-        <div style={{ fontSize:"10px", letterSpacing:"0.45em", color:"#c8a87a", marginBottom:"16px", textTransform:"uppercase" }}>A Personal Collection</div>
-        <h1 style={{ fontFamily:"'IM Fell English',serif", fontStyle:"italic", fontSize:"clamp(34px,6vw,60px)", fontWeight:400, color:"#f5e6c8", marginBottom:"14px", textShadow:"0 4px 40px rgba(200,168,122,0.18)" }}>Moments & Moods</h1>
-        <div style={{ width:"52px", height:"1px", background:"linear-gradient(to right,transparent,#c8a87a,transparent)", margin:"0 auto 16px" }} />
-        <p style={{ fontStyle:"italic", fontSize:"14px", color:"#8a6a40", maxWidth:"280px", margin:"0 auto 10px", lineHeight:1.9 }}>Every image holds a feeling.<br/>Every feeling holds a piece of love.</p>
-        <p style={{ fontSize:"10px", color:"#4a3018", letterSpacing:"0.12em" }}>tap any card to reveal its image</p>
+      <header style={{ textAlign: "center", padding: "60px 24px 32px", position: "relative", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(16px)", transition: "all 1.1s cubic-bezier(0.23,1,0.32,1)" }}>
+        <button onClick={onBack} style={{ position: "absolute", left: 20, top: 60, background: "transparent", border: "1px solid rgba(200,168,122,0.25)", color: "#c8a87a", fontFamily: "'Cormorant Garamond',serif", fontSize: "11px", letterSpacing: "0.2em", padding: "6px 14px", cursor: "pointer", borderRadius: "1px", textTransform: "uppercase" }}>← back</button>
+        <div style={{ fontSize: "10px", letterSpacing: "0.45em", color: "#c8a87a", marginBottom: "16px", textTransform: "uppercase" }}>A Personal Collection</div>
+        <h1 style={{ fontFamily: "'IM Fell English',serif", fontStyle: "italic", fontSize: "clamp(34px,6vw,60px)", fontWeight: 400, color: "#f5e6c8", marginBottom: "14px", textShadow: "0 4px 40px rgba(200,168,122,0.18)" }}>Moments & Moods</h1>
+        <div style={{ width: "52px", height: "1px", background: "linear-gradient(to right,transparent,#c8a87a,transparent)", margin: "0 auto 16px" }} />
+        <p style={{ fontStyle: "italic", fontSize: "14px", color: "#8a6a40", maxWidth: "280px", margin: "0 auto 10px", lineHeight: 1.9 }}>Every image holds a feeling.<br />Every feeling holds a piece of love.</p>
+        <p style={{ fontSize: "10px", color: "#4a3018", letterSpacing: "0.12em" }}>tap any card to reveal its image</p>
       </header>
-      <nav style={{ display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"8px", padding:"0 20px 36px", opacity:visible?1:0, transition:"opacity 1.2s ease 0.25s" }}>
+      <nav style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px", padding: "0 20px 36px", opacity: visible ? 1 : 0, transition: "opacity 1.2s ease 0.25s" }}>
         {moods.map(m => (
-          <button key={m.id} className="mb" onClick={() => setActiveMood(m.id)} style={{ background:activeMood===m.id?"rgba(200,168,122,0.1)":"transparent", border:`1px solid ${activeMood===m.id?"rgba(200,168,122,0.55)":"rgba(200,168,122,0.16)"}`, color:activeMood===m.id?"#f5e6c8":"#6a5030", fontFamily:"'Cormorant Garamond',serif", fontSize:"12px", letterSpacing:"0.18em", padding:"6px 14px", cursor:"pointer", borderRadius:"1px", textTransform:"uppercase" }}>{m.emoji} {m.label}</button>
+          <button key={m.id} className="mb" onClick={() => setActiveMood(m.id)} style={{ background: activeMood === m.id ? "rgba(200,168,122,0.1)" : "transparent", border: `1px solid ${activeMood === m.id ? "rgba(200,168,122,0.55)" : "rgba(200,168,122,0.16)"}`, color: activeMood === m.id ? "#f5e6c8" : "#6a5030", fontFamily: "'Cormorant Garamond',serif", fontSize: "12px", letterSpacing: "0.18em", padding: "6px 14px", cursor: "pointer", borderRadius: "1px", textTransform: "uppercase" }}>{m.emoji} {m.label}</button>
         ))}
       </nav>
-      <main style={{ maxWidth:"1080px", margin:"0 auto", padding:"0 14px 80px", display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"14px", alignItems:"start", opacity:visible?1:0, transition:"opacity 1s ease 0.45s" }}>
-        {cols.map((col,ci) => <div key={ci}>{col.map(item => <FlipCard key={item.id} item={item}/>)}</div>)}
+      <main style={{ maxWidth: "1080px", margin: "0 auto", padding: "0 14px 80px", display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "14px", alignItems: "start", opacity: visible ? 1 : 0, transition: "opacity 1s ease 0.45s" }}>
+        {cols.map((col, ci) => <div key={ci}>{col.map(item => <FlipCard key={item.id} item={item} />)}</div>)}
       </main>
-      <footer style={{ textAlign:"center", padding:"0 0 44px", color:"#2e2210", fontSize:"11px", letterSpacing:"0.25em", textTransform:"uppercase" }}>✦ made with love ✦</footer>
+      <footer style={{ textAlign: "center", padding: "0 0 44px", color: "#2e2210", fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase" }}>✦ made with love ✦</footer>
     </div>
   );
 }
@@ -135,25 +135,26 @@ function HomePage({ onExplore }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
   return (
-    <div style={{ minHeight:"100vh", background:"#080503", fontFamily:"'Cormorant Garamond',serif", color:"#f5e6c8" }}>
-      <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+    <div style={{ minHeight: "100vh", background: "#080503", fontFamily: "'Cormorant Garamond',serif", color: "#f5e6c8" }}>
+      <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
       <style>{`@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}@keyframes shimmer{0%,100%{opacity:0.4}50%{opacity:0.9}}.xbtn{transition:all 0.45s cubic-bezier(0.23,1,0.32,1)!important}.xbtn:hover{background:rgba(200,168,122,0.12)!important;border-color:rgba(200,168,122,0.7)!important;letter-spacing:0.38em!important;color:#fff!important}`}</style>
-      <div style={{ position:"relative", width:"100%", height:"100vh", overflow:"hidden" }}>
-        <img src={COVER} alt="cover" style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center 20%", display:"block", filter:"brightness(0.7) contrast(1.05)" }}/>
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom,rgba(8,5,3,0.15) 0%,rgba(8,5,3,0.04) 40%,rgba(8,5,3,0.6) 75%,rgba(8,5,3,0.96) 100%)" }}/>
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to right,rgba(8,5,3,0.3) 0%,transparent 50%,rgba(8,5,3,0.15) 100%)" }}/>
-        <div style={{ position:"absolute", bottom:0, left:0, right:0, display:"flex", flexDirection:"column", alignItems:"center", padding:"0 24px 60px", animation:visible?"fadeUp 1.2s cubic-bezier(0.23,1,0.32,1) forwards":"none", opacity:0 }}>
-          <div style={{ fontSize:"10px", letterSpacing:"0.5em", color:"#c8a87a", textTransform:"uppercase", marginBottom:"14px", opacity:0.8 }}>✦ &nbsp; hello, I am</div>
-          <h1 style={{ fontFamily:"'IM Fell English',serif", fontStyle:"italic", fontSize:"clamp(44px,9vw,88px)", fontWeight:400, color:"#f5e6c8", lineHeight:1.05, marginBottom:"20px", textShadow:"0 4px 40px rgba(0,0,0,0.6)", textAlign:"center" }}>Aria Lena</h1>
-          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:20, width:"min(320px,80%)" }}>
-            <div style={{ flex:1, height:"1px", background:"linear-gradient(to right,transparent,rgba(200,168,122,0.5))" }}/>
-            <div style={{ fontSize:10, color:"#c8a87a", opacity:0.6 }}>✦</div>
-            <div style={{ flex:1, height:"1px", background:"linear-gradient(to left,transparent,rgba(200,168,122,0.5))" }}/>
+      <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
+        <img src={COVER} alt="cover" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", display: "block", filter: "brightness(0.7) contrast(1.05)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom,rgba(8,5,3,0.15) 0%,rgba(8,5,3,0.04) 40%,rgba(8,5,3,0.6) 75%,rgba(8,5,3,0.96) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(8,5,3,0.3) 0%,transparent 50%,rgba(8,5,3,0.15) 100%)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", flexDirection: "column", alignItems: "center", padding: "0 24px 60px", animation: visible ? "fadeUp 1.2s cubic-bezier(0.23,1,0.32,1) forwards" : "none", opacity: 0 }}>
+          <div style={{ fontSize: "10px", letterSpacing: "0.5em", color: "#c8a87a", textTransform: "uppercase", marginBottom: "14px", opacity: 0.8 }}>✦ &nbsp; You're </div>
+          <h1 style={{ fontFamily: "'IM Fell English',serif", fontStyle: "italic", fontSize: "clamp(44px,9vw,88px)", fontWeight: 400, color: "#f5e6c8", lineHeight: 1.05, marginBottom: "20px", textShadow: "0 4px 40px rgba(0,0,0,0.6)", textAlign: "center" }}>My Rainy Day</h1>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, width: "min(320px,80%)" }}>
+            <div style={{ flex: 1, height: "1px", background: "linear-gradient(to right,transparent,rgba(200,168,122,0.5))" }} />
+            <div style={{ fontSize: 10, color: "#c8a87a", opacity: 0.6 }}>✦</div>
+            <div style={{ flex: 1, height: "1px", background: "linear-gradient(to left,transparent,rgba(200,168,122,0.5))" }} />
           </div>
-          <p style={{ fontStyle:"italic", fontSize:"clamp(14px,2.2vw,17px)", color:"rgba(200,160,112,0.85)", lineHeight:1.9, maxWidth:"400px", textAlign:"center", marginBottom:"38px", textShadow:"0 2px 12px rgba(0,0,0,0.5)" }}>A dreamer in love with quiet moments, golden light, and the stories that live between heartbeats. This is my world — soft, wild, and deeply felt.</p>
-          <button className="xbtn" onClick={onExplore} style={{ background:"transparent", border:"1px solid rgba(200,168,122,0.45)", color:"#f5e6c8", fontFamily:"'Cormorant Garamond',serif", fontSize:"12px", letterSpacing:"0.3em", padding:"13px 40px", cursor:"pointer", borderRadius:"1px", textTransform:"uppercase", boxShadow:"0 0 30px rgba(200,168,122,0.06)" }}>Explore</button>
-          <div style={{ marginTop:26, display:"flex", flexDirection:"column", alignItems:"center", animation:"shimmer 2.5s ease-in-out infinite" }}>
-            <div style={{ width:1, height:26, background:"rgba(200,168,122,0.4)" }}/>
+          <p style={{ fontStyle: "italic", fontSize: "clamp(14px,2.2vw,17px)", color: "rgba(200,160,112,0.85)", lineHeight: 1.9, maxWidth: "400px", textAlign: "center", marginBottom: "38px", textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>No matter what life brings, I’m so grateful to have you by my side. You are more than a best friend, more than a sister—you are family to my heart. Filled with love, laughter, trust, and countless memories that make life beautiful. No distance, no time, and no challenge can ever change what you mean to me. Thank you for being my safe place, my happiness, and my forever person. ❤️
+          </p>
+          <button className="xbtn" onClick={onExplore} style={{ background: "transparent", border: "1px solid rgba(200,168,122,0.45)", color: "#f5e6c8", fontFamily: "'Cormorant Garamond',serif", fontSize: "12px", letterSpacing: "0.3em", padding: "13px 40px", cursor: "pointer", borderRadius: "1px", textTransform: "uppercase", boxShadow: "0 0 30px rgba(200,168,122,0.06)" }}>Explore</button>
+          <div style={{ marginTop: 26, display: "flex", flexDirection: "column", alignItems: "center", animation: "shimmer 2.5s ease-in-out infinite" }}>
+            <div style={{ width: 1, height: 26, background: "rgba(200,168,122,0.4)" }} />
           </div>
         </div>
       </div>
